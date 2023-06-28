@@ -4,15 +4,15 @@
   <demo-header></demo-header>
   <demo-main></demo-main>
   <demo-footer></demo-footer>
-  <div>{{ data.name }}</div>
-  <div>{{ data.age }}</div>
-  <div>{{ data.arr }} / {{ data.arr[1] }}</div>
-  <div>{{ data.obj }} / {{ data.obj.num }}</div>
+  <div>{{ name }}</div>
+  <div>{{ age }}</div>
+  <div>{{ arr }} / {{ arr[1] }}</div>
+  <div>{{ obj }} / {{ obj.num }}</div>
 </template>
 
 <script>
 // js 部分
-import { defineComponent, ref, reactive } from "vue";
+import { defineComponent, ref, reactive, toRefs } from "vue";
 import DemoHeader from "@/components/demoHeader/DemoHeader";
 import DemoMain from "@/components/demoMain/DemoMain";
 import DemoFooter from "@/components/demoFooter/DemoFooter";
@@ -42,7 +42,7 @@ export default defineComponent({
       },
     });
     return {
-      data,
+      ...toRefs(data),
     };
   },
 });
