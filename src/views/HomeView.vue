@@ -4,11 +4,15 @@
   <demo-header></demo-header>
   <demo-main></demo-main>
   <demo-footer></demo-footer>
+  <div>{{ name }}</div>
+  <div>{{ age }}</div>
+  <div>{{ arr }} / {{arr[1]}}</div>
+  <div>{{ obj }} / {{obj.name}}</div>
 </template>
 
 <script>
 // js 部分
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import DemoHeader from "@/components/demoHeader/DemoHeader";
 import DemoMain from "@/components/demoMain/DemoMain";
 import DemoFooter from "@/components/demoFooter/DemoFooter";
@@ -29,7 +33,19 @@ export default defineComponent({
 
   // setup 函数
   setup(props, ctx) {
-    return {};
+    const name = ref("chendadou");
+    const age = ref(3);
+    const arr = ref(["aaa", "bbb", "ccc"]);
+    const obj = {
+      name: "test",
+      no: 8,
+    };
+    return {
+      name,
+      age,
+      arr,
+      obj,
+    };
   },
 });
 </script>
