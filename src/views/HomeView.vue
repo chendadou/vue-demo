@@ -4,15 +4,15 @@
   <demo-header></demo-header>
   <demo-main></demo-main>
   <demo-footer></demo-footer>
-  <div>{{ name }}</div>
-  <div>{{ age }}</div>
-  <div>{{ arr }} / {{arr[1]}}</div>
-  <div>{{ obj }} / {{obj.name}}</div>
+  <div>{{ data.name }}</div>
+  <div>{{ data.age }}</div>
+  <div>{{ data.arr }} / {{ data.arr[1] }}</div>
+  <div>{{ data.obj }} / {{ data.obj.num }}</div>
 </template>
 
 <script>
 // js 部分
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, reactive } from "vue";
 import DemoHeader from "@/components/demoHeader/DemoHeader";
 import DemoMain from "@/components/demoMain/DemoMain";
 import DemoFooter from "@/components/demoFooter/DemoFooter";
@@ -33,18 +33,16 @@ export default defineComponent({
 
   // setup 函数
   setup(props, ctx) {
-    const name = ref("chendadou");
-    const age = ref(3);
-    const arr = ref(["aaa", "bbb", "ccc"]);
-    const obj = {
-      name: "test",
-      no: 8,
-    };
+    let data = reactive({
+      name: "duoduo",
+      age: 2,
+      arr: ["aaa", "bbb", "ccc"],
+      obj: {
+        num: 123,
+      },
+    });
     return {
-      name,
-      age,
-      arr,
-      obj,
+      data,
     };
   },
 });
