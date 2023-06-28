@@ -1,9 +1,13 @@
 <template>
   <!-- html 部分 -->
-  <h1>todo list</h1>
-  <demo-header></demo-header>
-  <demo-main></demo-main>
-  <demo-footer></demo-footer>
+  <div class="home">
+    <h1>todo list</h1>
+    <div class="home-content">
+      <demo-header></demo-header>
+      <demo-main></demo-main>
+      <demo-footer></demo-footer>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -28,11 +32,33 @@ export default defineComponent({
   },
 
   // setup 函数
-  setup(props, ctx) {},
+  setup(props, ctx) {
+    return {};
+  },
 });
 </script>
 
 <style scoped lang='scss'>
 /* css 部分 */
 /* scoped：表示样式仅在当前组件生效 */
+.home {
+  margin: 20% auto;
+  padding: 10px;
+  width: 500px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+
+  h1 {
+    text-align: center;
+  }
+
+  :not(h1) {
+    font-size: 20px;
+  }
+
+  .home-content {
+    width: 300px;
+    margin: 0 auto;
+  }
+}
 </style>
