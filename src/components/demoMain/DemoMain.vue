@@ -7,24 +7,15 @@
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, computed } from "vue";
+import { useStore } from "vuex";
 export default defineComponent({
   name: "demoMain",
   setup() {
-    let list = ref([
-      {
-        title: "吃饭",
-        complete: true,
-      },
-      {
-        title: "睡觉",
-        complete: false,
-      },
-      {
-        title: "打游戏",
-        complete: false,
-      },
-    ]);
+    let store = useStore();
+    let list = computed(() => {
+      return store.state.list;
+    });
 
     // 删除任务
     let deleteTask = (item, index) => {
