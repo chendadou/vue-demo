@@ -12,17 +12,17 @@ import StartView from '../views/StartView.vue'
 const routes = [
   {
     path: '/',
-    name: 'start',
+    name: 'Start',
     component: StartView,
   },
   {
     path: '/home',
-    name: 'home',
+    name: 'Home',
     component: () => import('../views/HomeView.vue'),
   },
   {
     path: '/about',
-    name: 'about',
+    name: 'About',
 
     // 按需加载，节约性能。
     // 若没有访问 /about，则不会加载 AboutView 这个组件
@@ -30,8 +30,18 @@ const routes = [
   },
   {
     path: '/demo',
-    name: 'demo',
+    name: 'Demo',
     component: () => import('../views/DemoView.vue'),
+  },
+  {
+    path: '/demo/query',
+    name: 'Query',
+    component: () => import('../views/QueryView.vue'),
+  },
+  {
+    path: '/demo/params/:name/:age/:obj',
+    name: 'Params',
+    component: () => import('../views/ParamsView.vue'),
   },
 ]
 
