@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import StartView from '../views/StartView.vue'
 
 /**
  * 几点说明：
@@ -12,8 +12,13 @@ import HomeView from '../views/HomeView.vue'
 const routes = [
   {
     path: '/',
+    name: 'start',
+    component: StartView,
+  },
+  {
+    path: '/home',
     name: 'home',
-    component: HomeView,
+    component: () => import('../views/HomeView.vue'),
   },
   {
     path: '/about',
