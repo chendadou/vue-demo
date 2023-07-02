@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="about">
     <h1>This is an about page</h1>
 
     <!-- @send 是子组件里定义的 emit 分发事件，用于子组件向父组件传递数据 -->
@@ -45,3 +45,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+.about {
+  button {
+    padding: 0 10px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+</style>

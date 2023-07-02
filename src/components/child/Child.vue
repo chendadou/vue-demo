@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="child">
     <h2>this is a child page.</h2>
 
     <!-- props 接收的数据可直接在模板中使用 -->
@@ -42,3 +42,11 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+.child {
+  border: 1px solid #ccc;
+  margin: 5px;
+  padding: 10px;
+}
+</style>

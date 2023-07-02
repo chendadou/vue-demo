@@ -2,7 +2,7 @@
   <div class="query">
     <h1>This is an query test page</h1>
     <ul>
-      <li v-for="(value, key) in query" :key="key">{{key}}: {{value}}</li>
+      <li v-for="(value, key) in query" :key="key">{{ key }}: {{ value }}</li>
     </ul>
     <button @click="goBack">返回</button>
   </div>
@@ -38,3 +38,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+.query {
+  button {
+    padding: 0 10px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+</style>

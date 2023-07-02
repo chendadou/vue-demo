@@ -65,3 +65,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped lang="scss">
+.params {
+  button {
+    padding: 0 10px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+</style>

@@ -1,20 +1,22 @@
 <template>
-  <h1>todo list demo</h1>
-  <div>
-    <button @click="start">开始任务</button>
-  </div>
+  <div class="start">
+    <h1>1. todo list demo</h1>
+    <div>
+      <button @click="start">开始任务</button>
+    </div>
 
-  <h1>路由传参示例</h1>
-  <div>
-    <button @click="goQuery">query传参</button>
-  </div>
-  <div>
-    <button @click="goParams">params传参</button>
-  </div>
-  
-  <h1>父子组件传参</h1>
-  <div>
-    <button @click="goAbout">示例</button>
+    <h1>2. 路由传参示例</h1>
+    <div>
+      <button @click="goQuery">query 传参</button>
+    </div>
+    <div>
+      <button @click="goParams">params 传参</button>
+    </div>
+
+    <h1>3. 父子组件传参</h1>
+    <div>
+      <button @click="goAbout">示 例</button>
+    </div>
   </div>
 </template>
 
@@ -90,3 +92,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.start {
+  button {
+    padding: 0 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+}
+</style>
