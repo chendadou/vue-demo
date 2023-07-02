@@ -1,12 +1,14 @@
 <template>
-  <div>this is a child page.</div>
+  <div>
+    <h2>this is a child page.</h2>
 
-  <!-- props 接收的数据可直接在模板中使用 -->
-  <div>父组件传递过来的数据：{{ message }}</div>
+    <!-- props 接收的数据可直接在模板中使用 -->
+    <div>[Child Page] 父组件传递过来的数据：{{ message }}</div>
+  </div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, ref, onMounted } from "vue";
 
 export default defineComponent({
   name: "Child",
@@ -24,8 +26,18 @@ export default defineComponent({
       required: false,
     },
   },
-  setup(props) {
+  setup(props, ctx) {
+    // 父组件向子组件传递的数据
     console.log("props.message: ", props.message);
+
+    let childMsg = ref("the message from child page.");
+
+    // 子组件向父组件传递数据，通过 ctx.emit 分发事件
+    // ctx(事件名称，传递的数据)
+    onMounted(() => {
+      ctx.emit("send", childMsg.value);
+    });
+
     return {};
   },
 });
