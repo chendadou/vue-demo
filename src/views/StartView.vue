@@ -3,12 +3,18 @@
   <div>
     <button @click="start">开始任务</button>
   </div>
+
   <h1>路由传参示例</h1>
   <div>
     <button @click="goQuery">query传参</button>
   </div>
   <div>
     <button @click="goParams">params传参</button>
+  </div>
+  
+  <h1>父子组件传参</h1>
+  <div>
+    <button @click="goAbout">示例</button>
   </div>
 </template>
 
@@ -68,10 +74,18 @@ export default defineComponent({
       });
     };
 
+    // 父子组件传参
+    let goAbout = () => {
+      router.push({
+        path: "/about",
+      });
+    };
+
     return {
       start,
       goQuery,
       goParams,
+      goAbout,
     };
   },
 });
