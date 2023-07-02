@@ -47,7 +47,7 @@ export default defineComponent({
         query: {
           name: name.value,
           age: age.value,
-          obj: JSON.stringify(obj),
+          obj: JSON.stringify(obj.value),
         },
       });
     };
@@ -63,7 +63,7 @@ export default defineComponent({
         params: {
           name: name.value,
           age: age.value,
-          obj: JSON.stringify(obj),
+          obj: JSON.stringify(obj.value),
         },
       });
     };
