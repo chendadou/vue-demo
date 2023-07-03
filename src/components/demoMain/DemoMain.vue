@@ -7,22 +7,22 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue";
-import { useStore } from "vuex";
+import { defineComponent } from "vue";
 export default defineComponent({
   name: "demoMain",
+  props: {
+    list: {
+      type: Array,
+      required: true,
+    }
+  },
   setup() {
-    let store = useStore();
-    let list = computed(() => {
-      return store.state.list;
-    });
 
     // 删除任务
     let deleteTask = (item, index) => {
       console.log("delete", item, index);
     };
     return {
-      list,
       deleteTask,
     };
   },
@@ -53,6 +53,7 @@ export default defineComponent({
 
   &:hover {
     background-color: #ccc;
+
     .delete-btn {
       display: block;
     }

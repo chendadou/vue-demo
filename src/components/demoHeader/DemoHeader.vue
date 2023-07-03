@@ -14,12 +14,14 @@
 import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "demoHeader",
-  setup() {
+  setup(props, ctx) {
     let task = ref("");
 
-    // 新增任务
+    // 新增任务（按回车确认）
     let addTask = () => {
-      console.log(task.value);
+
+      // 将输入框内容传递给父组件 Home
+      ctx.emit('add', task.value);
     };
     return {
       task,

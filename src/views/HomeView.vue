@@ -3,16 +3,18 @@
   <div class="home">
     <h1>todo list</h1>
     <div class="home-content">
-      <demo-header></demo-header>
-      <demo-main></demo-main>
-      <demo-footer></demo-footer>
+      <demo-header @add="add"></demo-header>
+      <demo-main :list="list"></demo-main>
+      <demo-footer :list="list"></demo-footer>
     </div>
   </div>
 </template>
 
 <script>
 // js 部分
-import { defineComponent } from "vue";
+import { defineComponent, ref, computed } from "vue";
+import { useStore } from "vuex";
+
 import DemoHeader from "@/components/demoHeader/DemoHeader";
 import DemoMain from "@/components/demoMain/DemoMain";
 import DemoFooter from "@/components/demoFooter/DemoFooter";
@@ -33,7 +35,22 @@ export default defineComponent({
 
   // setup 函数
   setup(props, ctx) {
-    return {};
+    let store = useStore();
+    let list = computed(() => {
+      return store.state.list;
+    });
+
+    let newTask = ref('');
+    const add = (val) => {
+      newTask.value = val;
+      console.log(val);
+    }
+    
+    return {
+      add,
+      list,
+      newTask,
+    };
   },
 });
 </script>

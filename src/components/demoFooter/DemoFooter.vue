@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div>已完成{{ completeNum }} / 全部{{ all }}</div>
+    <div>已完成{{ completeNum }} / 全部{{ list.length }}</div>
     <div v-if="completeNum > 0" class="clear-btn">
       <button @click="clearCompleteTask">清除已完成</button>
     </div>
@@ -11,9 +11,14 @@
 import { defineComponent, ref } from "vue";
 export default defineComponent({
   name: "demoFooter",
+  props: {
+    list: {
+      type: Array,
+      required: true,
+    }
+  },
   setup() {
     let completeNum = ref(1);
-    let all = ref(3);
 
     // 清除已完成
     let clearCompleteTask = () => {
@@ -21,7 +26,6 @@ export default defineComponent({
     };
     return {
       completeNum,
-      all,
       clearCompleteTask,
     };
   },
