@@ -1,12 +1,6 @@
 <template>
   <div>
-    <input
-      class="task-name"
-      type="text"
-      placeholder="请输入任务名称"
-      v-model="task"
-      @keydown.enter="addTask"
-    />
+    <input class="task-name" type="text" placeholder="请输入任务名称" v-model="task" @keydown.enter="addTask" />
   </div>
 </template>
 
@@ -22,6 +16,9 @@ export default defineComponent({
 
       // 将输入框内容传递给父组件 Home
       ctx.emit('add', task.value);
+
+      // 回车确认后，清空输入框
+      task.value = '';
     };
     return {
       task,

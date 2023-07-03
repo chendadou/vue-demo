@@ -2,7 +2,7 @@
   <div class="footer">
     <div>已完成{{ completeNum }} / 全部{{ list.length }}</div>
     <div v-if="completeNum > 0" class="clear-btn">
-      <button @click="clearCompleteTask">清除已完成</button>
+      <button @click="clear">清除已完成</button>
     </div>
   </div>
 </template>
@@ -15,18 +15,23 @@ export default defineComponent({
     list: {
       type: Array,
       required: true,
+    },
+    completeNum: {
+      type: Number,
+      required: true,
     }
   },
-  setup() {
-    let completeNum = ref(1);
-
+  setup(props, ctx) {
     // 清除已完成
-    let clearCompleteTask = () => {
-      console.log("clear");
+    let clear = () => {
+
+      // 保留未完成
+      const arr = props.list.filter(item => item.complete === false);
+      ctx.emit('clear', arr);
+      // console.log("clear");
     };
     return {
-      completeNum,
-      clearCompleteTask,
+      clear,
     };
   },
 });

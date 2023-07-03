@@ -7,15 +7,19 @@ export default createStore({
   state: {
     list: [
       {
-        title: "吃饭",
-        complete: true,
+        title: "吃嘛嘛香",
+        complete: false,
       },
       {
-        title: "睡觉",
+        title: "睡嘛嘛香",
         complete: false,
       },
       {
         title: "打游戏",
+        complete: false,
+      },
+      {
+        title: "写代码",
         complete: false,
       },
     ],
@@ -39,7 +43,7 @@ export default createStore({
     },
 
     // 清除已完成（payload：指过滤之后的数组）
-    clear: (state, payload) => {
+    clearTodoTask: (state, payload) => {
       state.list = payload;
     }
   },
